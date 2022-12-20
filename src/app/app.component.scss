@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: cursive;
+}
+
+body {
+  min-height: 90vh;
+}
+
+.wrapper_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 1px 8px 0.2px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper_nav.top {
+  top: 0;
+  height: 60px;
+  background: #fff;
+  transform: translateY(0);
+}
+
+.bowl_Serach {
+  width: 50%;
+}
+
+.form_Search,
+.btn {
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 3px;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 1.5px 7px rgba(0, 0, 0, 0.534);
+}
+.btn {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  box-shadow:none;
+  border: 1px solid rgb(208, 208, 208);
+}
+
+.form_Search input {
+  flex: 1;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.bowl_svg_Search {
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bowl_svg_Search svg {
+  height: 100%;
+  width: 25px;
+  height: 25px;
+  fill: rgb(54, 54, 54);
+}
+
+.wrapper_main {
+  margin: 70px auto;
+  font-size: 14px;
+  width: 90%;
+  padding-bottom: 30px;
+}
+
+.bowl_data {
+  width: 95%;
+  padding: 10px;
+  background: rgb(230, 230, 230);
+  margin-top: 10px;
+  border-radius: 20px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.397);
+}
+
+.bowl_data:nth-child(even) {
+  animation: moveLines 0.5s ease-in-out;
+}
+.bowl_data:nth-child(odd) {
+  animation: moveLinesL 0.7s ease-in-out;
+}
+
+@keyframes moveLinesL {
+  0% {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveLines {
+  0% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.bowl_data:hover {
+  background: rgb(211, 211, 211);
+}
+
+.result {
+  font-size: 22px;
+}
