@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
-
+// import { Clipboard } from '@angular/cdk/clipboard';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +16,9 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.data = await this.dataService.getPAbbrevations();
   }
-
+// copyText(textToCopy: string) {
+//     this.clipboard.copy(textToCopy);
+// }
   search(sentence: any) {
     this.result=""
     let shorts = sentence.trim().split(' ');

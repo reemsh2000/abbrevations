@@ -1,4 +1,4 @@
-<div [class]="showResult ? 'wrapper_nav top' : 'wrapper_nav'">
+<!-- <div [class]="showResult ? 'wrapper_nav top' : 'wrapper_nav'">
   <div class="bowl_Serach">
     <div class="form_Search">
       <div class="bowl_svg_Search">
@@ -8,9 +8,25 @@
     </div>
   </div>
   <button class="btn" (click)="search(input.value)">Get</button>
-</div>
+  <button (click)="copyText('Text to copy!')">Click to copy</button> -->
+
+<!-- </div>
 <main class="wrapper_main">
   <p class="result">
     {{ result }}
   </p>
-</main>
+</main>  -->
+<div class="container">
+  <div class="left">
+    <input #input type="text" placeholder="search .." class="input" />
+    <p-button
+      label="Search"
+      class="serach_btn"
+      (click)="search(input.value)"
+    ></p-button>
+  </div>
+  <div class="right">
+    <div class="text"></div>
+    <div class="control_icons"></div>
+  </div>
+</div>
