@@ -1,32 +1,20 @@
-<!-- <div [class]="showResult ? 'wrapper_nav top' : 'wrapper_nav'">
-  <div class="bowl_Serach">
-    <div class="form_Search">
-      <div class="bowl_svg_Search">
-        <i class="pi pi-search"></i>
-      </div>
-      <input #input type="text" placeholder="search .." />
-    </div>
-  </div>
-  <button class="btn" (click)="search(input.value)">Get</button>
-  <button (click)="copyText('Text to copy!')">Click to copy</button> -->
 
-<!-- </div>
-<main class="wrapper_main">
-  <p class="result">
-    {{ result }}
-  </p>
-</main>  -->
 <div class="container">
   <div class="left">
-    <input #input type="text" placeholder="search .." class="input" />
-    <p-button
-      label="Search"
-      class="serach_btn"
-      (click)="search(input.value)"
-    ></p-button>
+    <input #input type="text" placeholder="search .." class="input"[(ngModel)]="searchSentence" />
+    <p-button label="Search" class="serach_btn"(click)="search(searchSentence)"></p-button>
   </div>
   <div class="right">
-    <div class="text"></div>
+    <div class="text">
+      <p class="result">
+        {{    result }}
+      </p>
+    </div>
+    <div class="btns">
+      <button pButton type="button" icon="pi pi-copy" label="Copy" iconPos="right" (click)="copy()"></button>
+      <button pButton type="button" icon="pi pi-eraser" iconPos="right"(click)="delete(searchSentence)"></button>
+    </div>
+
     <div class="control_icons"></div>
   </div>
 </div>
