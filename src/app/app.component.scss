@@ -30,24 +30,29 @@
   width: 70%;
   height: 300px;
   background-color: #fff;
-  
-}
-.result{
+  border: none;
   padding: 15px;
+  outline: none;
 }
-.btns{
+
+.btns {
   margin-top: 15px;
   display: flex;
   justify-content: space-evenly;
   width: 50%;
 }
-.serach_btn{
-padding: 15px;
-width: 200px !important;
+.serach_btn {
+  padding: 15px;
+  width: 200px !important;
 }
 
-:host ::ng-deep body > app-root > div > div.right > div.btns > button:nth-child(1){
-  padding: 15px;
-width: 200px !important;
+:host ::ng-deep .result_btns button {
+  background-color: #f2f2f2;
+  border: none;
+  color: #000;
+}
 
+:host ::ng-deep .left .serach_btn button {
+  padding: 15px;
+  width: 200px !important;
 }
