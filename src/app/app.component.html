@@ -1,18 +1,21 @@
 
+
 <div class="container">
   <div class="left">
+    <p-button class="swap" [label]="buttonLabel" (click)="changeLabelName()"></p-button>
+
     <textarea #input type="text" placeholder="search .." class="input"[(ngModel)]="searchSentence" ></textarea>
     <p-button class="serach_btn" label="Search" (click)="search(searchSentence)"></p-button>
   </div>
   <div class="right">
     <div class="text">
       <p class="result">
-        {{    result }}
+        {{ result }}
       </p>
     </div>
     <div class="btns">
       <p-button class="result_btns" type="button" icon="pi pi-copy" label="Copy" iconPos="right" (click)="copy()"></p-button>
-      <p-button class="result_btns" type="button" icon="pi pi-eraser" iconPos="right"(click)="delete(searchSentence)"></p-button>
+      <p-button class="result_btns" type="button" icon="pi pi-eraser" iconPos="right"(click)="delete()"></p-button>
     </div>
 
     <div class="control_icons"></div>

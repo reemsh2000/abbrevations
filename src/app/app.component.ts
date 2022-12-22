@@ -11,48 +11,54 @@ export class AppComponent implements OnInit {
   title = 'abbrevations';
   data: any = {};
   result = '';
-  showResult = false;
   searchSentence: string = '';
-  constructor(public dataService: DataService,private _clipboardService: ClipboardService) {}
+  buttonLabel: string = 'Abbrevations to Words';
+  toWords = true;
+
+  constructor(
+    public dataService: DataService,
+    private _clipboardService: ClipboardService
+  ) {}
   async ngOnInit() {
     this.data = await this.dataService.getPAbbrevations();
   }
-  // copyText(textToCopy: string) {
-  //     this.clipboard.copy(textToCopy);
-  // }
   search(sentence: any) {
+    if (this.toWords) {
+      this.getByAbbrevations(sentence, this.data);
+    } else {
+      const newData = this.swap(this.data);
+      this.getByAbbrevations(sentence, newData);
+    }
+  }
+
+  getByAbbrevations(sentence: string, data: any) {
     this.result = '';
     let shorts = sentence.trim().split(' ');
     for (let i = 0; i < shorts.length; i++) {
       let item = shorts[i];
-      this.result += this.data[item] ? this.data[item] + ' ' : shorts[i]+' ';
-    }
-    this.showResult = true;
-  }
 
-  delete(inputVal: any) {
+      this.result += data[item] ? data[item] + ' ' : shorts[i] + ' ';
+    }
+  }
+  swap(json: any) {
+    var ret: any = {};
+    for (var key in json) {
+      ret[json[key]] = key;
+    }
+    return ret;
+  }
+  delete() {
     this.result = '';
-    this.showResult = false;
     this.searchSentence = '';
   }
-
-
-  copyInputMessage(inputElement:any){
-    // inputElement.select();
-    // document.execCommand('copy');
-    // inputElement.setSelectionRange(0, 0);
-    
+  changeLabelName() {
+    this.toWords = !this.toWords;
+    this.buttonLabel = this.toWords
+      ? 'Abbrevations to Words'
+      : ' Words to Abbrevations';
   }
 
-  copy(){
-    this._clipboardService.copy(this.result)
+  copy() {
+    this._clipboardService.copy(this.result);
   }
-  // copyToClipboard(item:any) {
-  //   document.addEventListener('copy', (e: any) => {
-  //     e.clipboardData.setData('text/plain', (item:any));
-  //     e.preventDefault();
-  //     document.removeEventListener('copy', null);
-  //   });
-  //   document.execCommand('copy');
-  // }
 }
