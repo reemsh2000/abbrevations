@@ -35,8 +35,12 @@ export class AppComponent implements OnInit {
     this.result = '';
     let shorts = sentence.trim().split(' ');
     for (let i = 0; i < shorts.length; i++) {
-      let item = shorts[i];
-
+      let item = shorts[i] + ' ' + shorts[i+1];
+      if (data[item]) {
+        i++;
+      } else {
+        item = shorts[i];
+      }
       this.result += data[item] ? data[item] + ' ' : shorts[i] + ' ';
     }
   }
